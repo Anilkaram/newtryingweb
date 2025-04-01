@@ -1,0 +1,22 @@
+name: first website for cloud
+on:
+  push:
+    branches:
+      - master
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@master
+    
+    - name: Configure AWS Credentials
+      uses: Anilkaram/newtryingweb@nextbranch
+      with:
+        args: --acl public-read --follow-symlinks --delete
+      env:
+        AWS_S3_BUCKET: ${{ secrets.firstanilbucket }}    
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        SOURCE_DIR: './'
+        aws-region: us-east-1 
