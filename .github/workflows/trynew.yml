@@ -21,4 +21,4 @@ jobs:
         run: |
           aws s3 sync $SOURCE_DIR s3://${{ secrets.AWS_S3_BUCKET }}/ --follow-symlinks --delete
         env:
-          SOURCE_DIR: ./  # Specify the sour
+          SOURCE_DIR: ./NEWTRY  # Specify the sour
