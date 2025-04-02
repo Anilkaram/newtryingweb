@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-        
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -22,3 +22,11 @@ jobs:
           --delete
         env:
           SOURCE_DIR: ./
+      - name: Invalidate CloudFront Cache
+        run: |
+          # Invalidate CloudFront Cache
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/index.html"  # This invalidates everything; you can specify specific paths if needed.
+        env:
+          CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
