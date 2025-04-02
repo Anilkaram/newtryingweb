@@ -15,7 +15,7 @@ jobs:
           args: '--follow-symlinks --delete'
         env:
           AWS_S3_BUCKET: '${{ secrets.AWS_S3_BUCKET }}'
-          aws-access-key-id: '${{ secrets.AWS_ACCESS_KEY_ID }}'
-          aws-secret-access-key: '${{ secrets.AWS_SECRET_ACCESS_KEY }}'
+          aws-access-key-id: '${{ secrets.AKIAWX2IFXNW4SLZRK4F }}'
+          aws-secret-access-key: '${{secrets.zSTrPZbLfrotfP9oycjGRDzLJHVBVf0e1dsjJdab }}'
           SOURCE_DIR: index.html
-          aws-region: us-east-1
+          aws-region: us-east-1.
